@@ -1,4 +1,5 @@
 ![GitHub action results](https://github.com/G-Bro/teemill-ruby-sdk/actions/workflows/ruby.yml/badge.svg)
+![GitHub lint results](https://github.com/G-Bro/teemill-ruby-sdk/actions/workflows/lint.yml/badge.svg)
 ![CodeFactor](https://www.codefactor.io/repository/github/g-bro/teemill-ruby-sdk/badge)
 ![Gem version](https://img.shields.io/gem/v/gbro_teemill)
 ![Download count](https://img.shields.io/gem/dv/gbro_teemill/stable)
