@@ -19,7 +19,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rake', '~> 13.0'
   s.add_development_dependency 'rubocop'
   s.add_development_dependency 'spy'
-  s.add_development_dependency 'rubocop'
 
   s.required_ruby_version = '>= 2.6.0'
 end
