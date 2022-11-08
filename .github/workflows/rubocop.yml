@@ -11,6 +11,9 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
+      - name: Install gems
+        run: |
+          bundle install
       - name: Run rubocop
         run: |
           bundle exec rubocop
