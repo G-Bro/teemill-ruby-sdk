@@ -1,6 +1,10 @@
 name: Rubocop
 
 on: [pull_request]
+
+permissions:
+  contents: read
+
 jobs:
   rubocop:
     runs-on: ubuntu-latest
