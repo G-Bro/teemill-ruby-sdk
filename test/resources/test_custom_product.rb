@@ -45,14 +45,22 @@ class TestCustomProduct < Minitest::Test
       id: 123_456,
       url: 'https://mystore.teemill.com/product-url-name',
       image: 'https://images.teemill.com/<image-url>',
-      colours: {
-        White: 'https://images.teemill.com/<image-url>',
-        Black: 'https://images.teemill.com/<image-url>'
-      },
+      colours: create_response_colours,
       name: 'Custom Product',
-      price: {
-        gbp: '19.00'
-      }
+      price: create_response_prices
+    }
+  end
+
+  def create_response_colours
+    {
+      White: 'https://images.teemill.com/<image-url>',
+      Black: 'https://images.teemill.com/<image-url>'
+    }
+  end
+
+  def create_response_prices
+    {
+      gbp: '19.00'
     }
   end
 end
