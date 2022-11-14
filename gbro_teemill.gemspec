@@ -16,6 +16,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'minitest', '~> 5.0'
   s.add_development_dependency 'minitest-reporters'
   s.add_development_dependency 'minitest-silence'
+  s.add_development_dependency 'minitest-stub_any_instance'
   s.add_development_dependency 'rake', '~> 13.0'
   s.add_development_dependency 'rubocop'
   s.add_development_dependency 'simplecov'

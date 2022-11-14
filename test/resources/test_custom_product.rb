@@ -3,6 +3,8 @@
 require 'minitest/reporters'
 Minitest::Reporters.use!
 
+require 'minitest/stub_any_instance'
+
 require 'minitest/autorun'
 
 class TestCustomProduct < Minitest::Test
@@ -22,5 +24,33 @@ class TestCustomProduct < Minitest::Test
 
     assert_match headers[:Authorization], 'Bearer charmander'
     Teemill.legacy_api_key = nil
+  end
+
+  def test_can_create_custom_products
+    require 'gbro_teemill'
+
+    response = {
+      id: 123456,
+      url: "https://mystore.teemill.com/product-url-name",
+      image: "https://images.teemill.com/<image-url>",
+      colours: {
+        White: "https://images.teemill.com/<image-url>",
+        Black: "https://images.teemill.com/<image-url>"
+      },
+      name: "Custom Product",
+      price: {
+        gbp: "19.00"
+      }
+    }
+
+    Teemill::CustomProduct.stub_any_instance(:send_request, response) do
+      Teemill.legacy_api_key = 'example'
+      custom_product = Teemill::CustomProduct.create({});
+
+      assert_instance_of(Teemill::CustomProduct, custom_product)
+      assert_equal(123456, custom_product.id)
+
+      Teemill.legacy_api_key = nil
+    end
   end
 end

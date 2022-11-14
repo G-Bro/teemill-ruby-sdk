@@ -20,6 +20,7 @@ GEM
       ruby-progressbar
     minitest-silence (0.2.4)
       minitest (~> 5.12)
+    minitest-stub_any_instance (1.0.3)
     openssl (3.0.1)
     parallel (1.22.1)
     parser (3.1.2.1)
@@ -62,6 +63,7 @@ DEPENDENCIES
   minitest (~> 5.0)
   minitest-reporters
   minitest-silence
+  minitest-stub_any_instance
   openssl (~> 3.0, >= 3.0.1)
   rake (~> 13.0)
   rubocop
