@@ -29,28 +29,30 @@ class TestCustomProduct < Minitest::Test
   def test_can_create_custom_products
     require 'gbro_teemill'
 
-    response = {
-      id: 123456,
-      url: "https://mystore.teemill.com/product-url-name",
-      image: "https://images.teemill.com/<image-url>",
-      colours: {
-        White: "https://images.teemill.com/<image-url>",
-        Black: "https://images.teemill.com/<image-url>"
-      },
-      name: "Custom Product",
-      price: {
-        gbp: "19.00"
-      }
-    }
-
-    Teemill::CustomProduct.stub_any_instance(:send_request, response) do
+    Teemill::CustomProduct.stub_any_instance(:send_request, create_response) do
       Teemill.legacy_api_key = 'example'
-      custom_product = Teemill::CustomProduct.create({});
+      custom_product = Teemill::CustomProduct.create({})
 
       assert_instance_of(Teemill::CustomProduct, custom_product)
-      assert_equal(123456, custom_product.id)
+      assert_equal(123_456, custom_product.id)
 
       Teemill.legacy_api_key = nil
     end
+  end
+
+  def create_response
+    {
+      id: 123_456,
+      url: 'https://mystore.teemill.com/product-url-name',
+      image: 'https://images.teemill.com/<image-url>',
+      colours: {
+        White: 'https://images.teemill.com/<image-url>',
+        Black: 'https://images.teemill.com/<image-url>'
+      },
+      name: 'Custom Product',
+      price: {
+        gbp: '19.00'
+      }
+    }
   end
 end
