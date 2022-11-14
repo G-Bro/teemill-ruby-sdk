@@ -26,6 +26,12 @@ class TestCustomProduct < Minitest::Test
     Teemill.legacy_api_key = nil
   end
 
+  def test_create_resource_url_is_string
+    custom_product = Teemill::CustomProduct.new
+
+    assert_instance_of(String, custom_product.create_resource_url)
+  end
+
   def test_can_create_custom_products
     require 'gbro_teemill'
 
